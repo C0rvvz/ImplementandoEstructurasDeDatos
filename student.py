@@ -1,7 +1,7 @@
 if __name__ == "__main__":
 
     class Student:
-        def __int__(self, name, age, grades):
+        def __init__(self, name, age, grades):
             self.name = name
             self.age = age
             self.grades = grades
@@ -15,17 +15,18 @@ if __name__ == "__main__":
 
 
     students_info = [
-    {"name": "Ana", "age": 20, "grades": [8, 7, 9]},
-    {"name": "Juan", "age": 22, "grades": [6, 8, 7]},
-    {"name": "Pedro", "age": 21, "grades": [9, 10, 9]},
+        {"name": "juan", "age": 12, "grades":  [1, 2, 3]},
+        {"name": "juliana", "age": 20, "grades": [3, 4, 5]},
+        {"name": "jhon", "age": 19, "grades": [2, 5, 3]},
+        {"name": "joaquin", "age": 21, "grades": [1, 4, 5]},
+        {"name": "jose", "age": 18, "grades": [0, 2, 5]},
     ]
+    students_list = [Student(datos["name"], datos["age"], datos["grades"])for datos in students_info]
+    umbral = 3
 
-    students = [Student(info["name"], info["age"], info["grades"]) for info in students_info]
+    lista_estudiantes_ganados = [estudiante for estudiante in students_list if estudiante.avarage_grade() >= umbral]
 
-    threshold = 8
+    dict_estudiante = {estudiante.name: estudiante for estudiante in students_list if estudiante.avarage_grade()>umbral}
 
-    passed_students = [student for student in students if student.average_grade() >= threshold]
-
-    passed_students_dict = {student.name: student for student in passed_students}
 
 
